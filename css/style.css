@@ -1,0 +1,500 @@
+/* CSS RESET */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*CSS START*/
+
+@font-face {
+	font-family: 'Terminal Grotesque';
+	src: url(font/terminal-grotesque.ttf);
+}
+
+@font-face {
+	font-family: 'Terminal Grotesque Open';
+	src: url(font/terminal-grotesque_open.otf);
+}
+
+@font-face {
+	font-family: 'Wingdings';
+	src: url(font/Wingdings.ttf);
+}
+
+/*BASE*/
+
+main,
+footer,
+.main_header {
+	padding-left: 4vh;
+}
+
+.main_header {
+	padding-top: 4vh;
+	width: 80vw;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.wingdings {
+	font-family: 'Wingdings';
+}
+
+.title:hover,
+footer .nonwingdings:hover {
+	text-decoration: underline;
+}
+
+.main_header,
+footer .nonwingdings {
+	font-family: 'Terminal Grotesque', sans-serif;
+	;
+}
+
+.main_header,
+footer,
+li {
+	font-size: 4.5vh;
+	text-transform: uppercase;
+	color: rgb(255, 0, 0);
+	line-height: 1.2;
+}
+
+ul {
+	font-family: 'Terminal Grotesque Open', sans-serif;
+	;
+	margin-top: 4vh;
+	margin-bottom: 4vh;
+}
+
+footer p {
+	font-family: 'Arial', sans-serif;
+	font-size: 0.4em;
+	color: rgb(255, 0, 0);
+	position: absolute;
+	bottom: 2%;
+	left: 0;
+	width: 100%;
+	text-align: center;
+}
+
+/*BOUNCING PICTURE*/
+
+.y_floaty,
+.x_floaty {
+	position: absolute;
+	width: 15em;
+	height: 15em;
+	z-index: -10;
+}
+
+.x_floaty {
+	animation: x 13s linear infinite alternate;
+}
+
+.y_floaty {
+	animation: y 7s linear infinite alternate;
+}
+
+@keyframes x {
+	100% {
+		transform: translateX(calc(100vw - 15em));
+	}
+}
+
+@keyframes y {
+	100% {
+		transform: translateY(calc(100vh - 15em));
+	}
+}
+
+/*DESCRIPTION POP-UPS*/
+
+.description {
+	position: absolute;
+	bottom: 1px;
+	left: 0;
+	width: 10em;
+	border: 1px solid rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255);
+	z-index: 100;
+	line-height: 1.4;
+	font-family: 'Arial';
+	font-size: 0.4em;
+	color: rgb(0, 0, 0);
+}
+
+.description header img{
+	transform: rotate(90deg);
+	position: absolute;
+	left: 8em;
+	top: -1.3em;
+	width: 6em;	
+}
+
+.description header {
+	border-bottom: 1px solid rgb(0, 0, 0);
+	font-weight: 600;
+}
+
+.description p,
+.description h3,
+.carousel h3 {
+	margin: 0.7em;
+}
+
+/*TOGGLE ON/OFF*/
+
+.work,
+.work2,
+.work3,
+.work4,
+.work5,
+.work6,
+.work7,
+.work8 {
+	display: block;
+	visibility: hidden;
+}
+
+label {
+	cursor: pointer;
+}
+
+#toggle:checked~.work,
+#toggle2:checked~.work2,
+#toggle3:checked~.work3,
+#toggle4:checked~.work4,
+#toggle5:checked~.work5,
+#toggle6:checked~.work6,
+#toggle7:checked~.work7,
+#toggle8:checked~.work8 {
+	visibility: visible;
+}
+
+.hidden {
+	position: relative;
+	right: 4em;
+	opacity: 0;
+}
+
+/*SLIDE*/
+
+.carousel {
+	box-sizing: border-box;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	border: 1px solid rgb(0, 0, 0);
+}
+
+.slide img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+.carousel:hover .slide:after,
+.carousel:hover .slide:before {
+	opacity: 1;
+}
+
+.slide {
+	float: right;
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	transition: opacity 0.2s;
+	opacity: 1;
+}
+
+.slide:before {
+	display: block;
+	position: absolute;
+	color: rgba(255, 255, 255, 0.9);
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.faux-slider {
+	top: 0;
+	right: 0;
+	float: right;
+	position: absolute;
+	margin-top: 0;
+	z-index: 9;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	cursor: pointer;
+}
+
+/*SKIP SLIDE*/
+
+.faux-slider:checked {
+	z-index: 8;
+}
+
+.faux-slider:checked+.slide {
+	opacity: 0;
+}
+
+.faux-slider:checked:nth-child(1):checked {
+	z-index: 9;
+}
+
+.faux-slider:nth-child(1):checked {
+	float: left;
+	z-index: 9;
+}
+
+.faux-slider:nth-child(1):checked+.slide {
+	opacity: 1;
+}
+
+.faux-slider:nth-child(1):checked~.faux-slider {
+	float: left;
+	z-index: 8;
+}
+
+.faux-slider:nth-child(1):checked~.faux-slider+.slide {
+	opacity: 0;
+}
+
+.faux-slider:nth-child(1):checked~.faux-slider:checked {
+	z-index: 9;
+}
+
+.faux-slider:nth-child(1):checked~.faux-slider:checked+.slide {
+	opacity: 1;
+}
+
+/*GIF*/
+
+.gif {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+}
+
+.gif img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+@media only screen and (min-width: 600px) {
+	
+	/*BASE*/
+	
+	main,
+	footer,
+	.main_header {
+		padding-left: 6vh;
+	}
+	.main_header {
+		padding-top: 6vh;
+	}
+	
+	/*SLIDE*/
+	
+	.carousel,
+	.gif {
+		background-color: rgb(0, 0, 0);
+		position: absolute;
+		top: 22%;
+		left: 20%;
+		width: 70%;
+		height: 65%;
+	}
+	.description {
+		bottom: 5%;
+		left: 12%;
+		width: 12em;
+	}
+	.description header img{
+	transform: rotate(0);
+	left: 9.8em;
+	top: inherit;
+	bottom: -1.25em;
+	width: 6em;	
+	}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+
+@media only screen and (min-width: 992px) {
+	/*BASE*/
+	main,
+	footer,
+	.main_header {
+		padding-left: 8vh;
+	}
+	.main_header {
+		padding-top: 8vh;
+	}
+	/*SLIDE*/
+	.carousel,
+	.gif {
+		top: 22%;
+		left: 20%;
+		width: 75%;
+		height: 65%;
+	}
+	.description {
+		left: 10%;
+	}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+
+@media only screen and (min-width: 1200px) {
+	.carousel,
+	.gif {
+		width: 55%;
+		height: 65%;
+		top: 10%;
+		left: 35%;
+	}
+	.description {
+		left: 27%;
+	}
+}
